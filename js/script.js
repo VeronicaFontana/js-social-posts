@@ -10,7 +10,7 @@ const user = [
     firstname: "Phil",
     lastname: "Mangione",
     date: date,
-    profilePic: "http://placebeard.it/300x300",
+    profilePic: "http://placebeard.it/300/300",
     text: "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
     img: "https://fastly.picsum.photos/id/947/300/300.jpg?hmac=VpYao_OnwATUAts7GbCbODLrBDmvqeG6TScoaQ1g-oM",
     like: likeCounter
@@ -46,7 +46,8 @@ user.forEach((person) => {
     <div class="post__header">
       <div class="post-meta">                    
         <div class="post-meta__icon">
-          <img class="profile-pic" src=${person.profilePic} alt="Phil Mangione">                    
+          <img class="profile-pic" src=${person.profilePic} alt="Phil Mangione"
+          >
         </div>
         <div class="post-meta__data">
           <div class="post-meta__author">${person.firstname} ${person.lastname}</div>
