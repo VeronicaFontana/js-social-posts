@@ -1,6 +1,7 @@
 
 const totalDate = new Date();
 const date = totalDate.toDateString();
+let liked = false;
 
 let likeCounter = 10;
 
@@ -16,7 +17,7 @@ const user = [
     like: likeCounter
   },
   {
-    id: 1,
+    id: 2,
     firstname: "Paolo",
     lastname: "Rossi",
     date: date,
@@ -26,7 +27,7 @@ const user = [
     like: likeCounter
   },
   {
-    id: 1,
+    id: 3,
     firstname: "Erica",
     lastname: "Meli",
     date: date,
@@ -74,21 +75,34 @@ user.forEach((person) => {
     </div>
   </div>
   `
+})
 
-  const buttonLike = document.querySelector(".like-button");
-  const likesCounter = document.querySelector(".likes__counter");
-
-  buttonLike.addEventListener("click", function(){
+const buttonLike = document.querySelector(".like-button");
+const likesCounter = document.querySelector(".likes__counter");
+buttonLike.addEventListener("click", function(){
     buttonLike.classList.toggle("like-button-color")
     likeCounter++;
+    liked = true;
 
     likesCounter.innerHTML = `
     Piace a <b id="like-counter-1" class="js-likes-counter">${likeCounter}</b> persone
     `
-  })
-})
 
-  
+    const likedPost = user.filter((person) =>{
+      if(liked){
+      liked = false;
+      return person.id;
+      }
+    })
+    console.log(likedPost);
+
+  })
+
+
+
+
+
+
 
 
   
