@@ -79,23 +79,35 @@ user.forEach((person) => {
 
 const buttonLike = document.querySelector(".like-button");
 const likesCounter = document.querySelector(".likes__counter");
+
+
 buttonLike.addEventListener("click", function(){
-    buttonLike.classList.toggle("like-button-color")
-    likeCounter++;
-    liked = true;
-
-    likesCounter.innerHTML = `
-    Piace a <b id="like-counter-1" class="js-likes-counter">${likeCounter}</b> persone
-    `
-
-    const likedPost = user.filter((person) =>{
-      if(liked){
+    if(liked === true){
+      buttonLike.classList.remove("like-button-color");
+      likeCounter--;
       liked = false;
-      return person.id;
-      }
-    })
-    console.log(likedPost);
 
+      likesCounter.innerHTML = `
+      Piace a <b id="like-counter-1" class="js-likes-counter">${likeCounter}</b> persone
+      `
+    }else if (liked === false){
+      buttonLike.classList.add("like-button-color")
+      likeCounter++;
+      liked = true;
+
+      likesCounter.innerHTML = `
+      Piace a <b id="like-counter-1" class="js-likes-counter">${likeCounter}</b> persone
+      `
+
+      const likedPost = user.filter((person) =>{
+        if(liked){
+          return person.id;
+        }else{
+          return " ";
+        }
+      })
+      console.log(likedPost);
+    }
   })
 
 
