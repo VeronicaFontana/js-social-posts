@@ -1,8 +1,7 @@
 
 const totalDate = new Date();
-const date = totalDate.toDateString();
+const date = totalDate.toLocaleDateString();
 let liked = false;
-
 let likeCounter = 10;
 
 const user = [
