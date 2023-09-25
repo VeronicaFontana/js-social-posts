@@ -1,36 +1,36 @@
 
-
 const totalDate = new Date();
-
 const date = totalDate.toDateString();
+
+let likeCounter = 10;
 
 const user = [
   {
     firstname: "Phil",
     lastname: "Mangione",
     date: date,
-    profilePic: "http://placebeard.it/640x480",
+    profilePic: "http://placebeard.it/300x300",
     text: "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
     img: "https://fastly.picsum.photos/id/947/300/300.jpg?hmac=VpYao_OnwATUAts7GbCbODLrBDmvqeG6TScoaQ1g-oM",
-    like: 80
+    like: likeCounter
   },
   {
     firstname: "Paolo",
     lastname: "Rossi",
     date: date,
-    profilePic: "http://placebeard.it/640x480",
+    profilePic: "http://placebeard.it/g/300/300",
     text: "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
     img: "https://fastly.picsum.photos/id/395/300/300.jpg?hmac=bNoTNUbPM5V9l39XVyBAGaTgCPlbuwxUq5BWkrGT7CQ",
-    like: 12
+    like: likeCounter
   },
   {
     firstname: "Erica",
     lastname: "Meli",
     date: date,
-    profilePic: "https://placekitten.com/200/300",
+    profilePic: "https://placekitten.com/300/300",
     text: "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
     img: "https://fastly.picsum.photos/id/440/300/300.jpg?hmac=K9zKMAEdnvvajpmT-bhi-nHmL0RoJ66vjn5gVaChe3s",
-    like: 29
+    like: likeCounter
   }
 ]
 
@@ -63,11 +63,20 @@ user.forEach((person) => {
               </a>
             </div>
           <div class="likes__counter">
-            Piace a <b id="like-counter-1" class="js-likes-counter">${person.like}</b> persone
+            Piace a <b id="like-counter-1" class="js-likes-counter">${likeCounter}</b> persone
           </div>
         </div> 
       </div>
     </div>
   </div>
   `
+})
+
+const buttonLike = document.querySelector(".like-button");
+
+buttonLike.addEventListener("click", function(){
+  buttonLike.classList.toggle("like-button-color")
+  likeCounter++;
+
+  console.log(likeCounter)
 })
