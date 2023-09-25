@@ -6,6 +6,7 @@ let likeCounter = 10;
 
 const user = [
   {
+    id: 1,
     firstname: "Phil",
     lastname: "Mangione",
     date: date,
@@ -15,6 +16,7 @@ const user = [
     like: likeCounter
   },
   {
+    id: 1,
     firstname: "Paolo",
     lastname: "Rossi",
     date: date,
@@ -24,6 +26,7 @@ const user = [
     like: likeCounter
   },
   {
+    id: 1,
     firstname: "Erica",
     lastname: "Meli",
     date: date,
@@ -33,6 +36,7 @@ const user = [
     like: likeCounter
   }
 ]
+
 
 const container = document.querySelector("#container");
 
@@ -70,13 +74,21 @@ user.forEach((person) => {
     </div>
   </div>
   `
+
+  const buttonLike = document.querySelector(".like-button");
+  const likesCounter = document.querySelector(".likes__counter");
+
+  buttonLike.addEventListener("click", function(){
+    buttonLike.classList.toggle("like-button-color")
+    likeCounter++;
+
+    likesCounter.innerHTML = `
+    Piace a <b id="like-counter-1" class="js-likes-counter">${likeCounter}</b> persone
+    `
+  })
 })
 
-const buttonLike = document.querySelector(".like-button");
+  
 
-buttonLike.addEventListener("click", function(){
-  buttonLike.classList.toggle("like-button-color")
-  likeCounter++;
 
-  console.log(likeCounter)
-})
+  
