@@ -13,7 +13,8 @@ const user = [
     profilePic: "http://placebeard.it/300/300",
     text: "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
     img: "https://fastly.picsum.photos/id/947/300/300.jpg?hmac=VpYao_OnwATUAts7GbCbODLrBDmvqeG6TScoaQ1g-oM",
-    like: likeCounter
+    like: likeCounter,
+    likeOnPost: liked
   },
   {
     id: 2,
@@ -23,7 +24,8 @@ const user = [
     profilePic: "http://placebeard.it/g/300/300",
     text: "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
     img: "https://fastly.picsum.photos/id/395/300/300.jpg?hmac=bNoTNUbPM5V9l39XVyBAGaTgCPlbuwxUq5BWkrGT7CQ",
-    like: likeCounter
+    like: likeCounter,
+    likeOnPost: liked
   },
   {
     id: 3,
@@ -33,7 +35,8 @@ const user = [
     profilePic: "https://placekitten.com/300/300",
     text: "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
     img: "https://fastly.picsum.photos/id/440/300/300.jpg?hmac=K9zKMAEdnvvajpmT-bhi-nHmL0RoJ66vjn5gVaChe3s",
-    like: likeCounter
+    like: likeCounter,
+    likeOnPost: liked
   }
 ]
 
@@ -100,11 +103,8 @@ buttonLike.addEventListener("click", function(){
       `
 
       const likedPost = user.filter((person) =>{
-        if(liked){
+        if(person.likeOnPost === true)
           return person.id;
-        }else{
-          return " ";
-        }
       })
       console.log(likedPost);
     }
